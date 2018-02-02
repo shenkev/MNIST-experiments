@@ -8,6 +8,7 @@ import torch.nn.init as init
 import torch.nn as nn
 from model import Net
 from logger import Logger
+import os
 
 
 class trainer:
@@ -95,7 +96,10 @@ class trainer:
             init.constant(module.bias.data, 0.0)
 
     def save_weights(self, model_name, epoch):
-        path = './checkpoints/{}_epoch_{}_model.pth'.format(model_name, epoch)
+        directory = './checkpoints/{}'.format(model_name)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        path = directory + '/epoch_{}_model.pth'.format(epoch)
         torch.save(self.model.state_dict(), path)
 
     def load_weights(self, path):
