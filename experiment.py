@@ -25,7 +25,7 @@ parser.add_argument('--log-interval', type=int, default=200, metavar='N',
 parser.add_argument('--load_weights', action='store_true', default=False,
                     help='load pretrained weights')
 parser.add_argument("--pretrained_weights", type=str,
-                    default="./checkpoints/expbs1024_epoch_30_model.pth")
+                    default="./checkpoints/expbs1024_epoch_2_model.pth")
 parser.add_argument("--model_name", type=str,
                     default="bs64start1024e30lr10x")
 
